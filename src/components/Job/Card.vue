@@ -1,6 +1,6 @@
 <template>
     <div class="job-card">
-        <img :src="requiredImg" alt="">
+        <img :src="getCompanyLogoURL(job.logo)" :alt="job.company" :title="job.company">
     </div>
 </template>
 
@@ -10,10 +10,14 @@ export default {
         job: Object
     },
 
-    computed: {
-        requiredImg(){
-            return require(`@/assets/images/${this.job.logo}.svg`);
+    methods: {
+        getCompanyLogoURL(name) {
+            const imagePathSplitted = name.split('/');
+
+            const imageName = imagePathSplitted[ imagePathSplitted.length - 1 ];
+
+            return require(`@/assets/images/${imageName}`);
         }
-    }
+    },
 }
 </script>

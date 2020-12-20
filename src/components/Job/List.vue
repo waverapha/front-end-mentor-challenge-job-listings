@@ -1,8 +1,6 @@
 <template>
   <div class="job-card-list">
-    <Card :job="job" />
-    <Card :job="job" />
-    <Card :job="job" />
+    <Card :key="job.id" v-for="job in jobs" :job="job" />
   </div>
 </template>
 
@@ -12,20 +10,23 @@ import Card from '@/components/Job/Card';
 export default {
   name: 'List',
 
-  props: {
-    msg: String
-  },
-
   components: {
     Card
   },
 
   data() {
     return {
-      job: {
-        logo: 'manage'
-      }
+      jobs: []
     }
+  },
+
+  mounted() {
+    fetch('data.json')
+    .then(stream => stream.json())
+    .then(data => {
+      this.jobs = data;
+    })
+    .catch(error => console.error(error))
   }
 }
 </script>
