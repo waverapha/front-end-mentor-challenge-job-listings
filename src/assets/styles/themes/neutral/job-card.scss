@@ -1,0 +1,158 @@
+.job-card-list{
+    margin-top: 156px;
+    padding: 25px;
+    
+    @media(min-width: $app-desktop-viewport-size){
+        @include flexbox;
+        justify-content: center;
+    }
+}
+
+.job-card{
+    margin: 30px 0 40px 0;
+    padding: 30px 18px 0 18px;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    background: #fff;
+    box-shadow: 0 10px 10px 0 adjust-color($primary-color, $alpha: -0.85);
+
+        @media(min-width: $app-desktop-viewport-size){
+            @include flexbox;
+            align-items: center;
+            width: 1100px;
+            margin: 15px 0;
+            padding: 25px;
+            font-size: 1rem;
+        }
+
+    &.is-featured{
+        border-left: 5px solid $primary-color;
+    }
+
+    .job-company-logo{
+        width: 50px;
+        margin-top: -55px;
+
+            @media (min-width: $app-desktop-viewport-size){
+                width: auto;
+                margin-top: 0;
+            }
+    }
+
+    .job-resume{
+        margin: 5px 0 0 0;
+
+            @media(min-width: $app-desktop-viewport-size){
+                margin: 0 0 0 20px;
+            }
+
+        .job-company-name{
+            @include flexbox();
+            align-items: center;
+            color: $primary-color;
+
+            .job-modifiers{
+                @include flexbox();
+                margin-left: 10px;
+
+                .modifier{
+                    margin-left: 5px;
+                    padding: 7px 10px 3px 10px;
+                    border-radius: 20px;
+                    text-transform: uppercase;
+                    font-size: 0.65rem;
+                    font-weight: 700;
+                    color: #fff;
+        
+                    &.is-new{
+                        background-color: $primary-color;
+                    }
+        
+                    &.is-featured{
+                        background-color: $neutral-darkest-grayish-cyan-color;
+                    }
+                }
+            }
+        }
+
+        .job-description{
+            padding: 10px 0;
+            border-bottom: 1px solid adjust-color($neutral-dark-grayish-cyan-color, $alpha: -0.5);
+
+                @media(min-width: $app-desktop-viewport-size){
+                    padding: 15px 0;
+                    border: 0;
+                }
+
+            .job-position{
+                font-size: 0.95rem;
+                color: $neutral-darkest-grayish-cyan-color;
+
+                    @media(min-width: $app-desktop-viewport-size){
+                        font-size: 1.17rem;
+                    }
+            }
+
+            .job-information{
+                @include flexbox;
+                margin-top: 10px;
+                color: $neutral-dark-grayish-cyan-color;
+
+                li{
+                    @include flexbox;
+                    align-items: center;
+                    margin-left: 5px;
+                    font-size: 0.8rem;
+
+                        @media(min-width: $app-desktop-viewport-size){
+                            font-size: 1rem;
+                            margin-left: 10px;
+                        }
+
+                    &::before{
+                        content: "•";
+                        margin-right: 5px;
+                        font-size: 1.15rem;
+
+                            @media(min-width: $app-desktop-viewport-size){
+                                margin-right: 10px;
+                            }
+                    }
+
+                    &:first-of-type{
+                        margin: 0;
+
+                        &::before{
+                            content: "";
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .job-filter-tags{
+        @include flexbox;
+        padding: 10px 0;
+        margin-left: -10px;
+
+            @media(min-width: $app-desktop-viewport-size){
+                margin-left: auto;
+            }
+
+        .job-filter-tag{
+            margin: 7.5px;
+            padding: 10px;
+            border-radius: 5px;
+            background: $bg-neutral-light-grayish-cyan-color;
+            color: $primary-color;
+            font-size: 0.8rem;
+            font-weight: 700;
+
+                @media(min-width: $app-desktop-viewport-size){
+                    font-size: 0.9rem;
+                }
+        }
+    }
+}
