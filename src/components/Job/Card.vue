@@ -29,25 +29,20 @@
         </div>
 
         <ul class="job-filter-tags">
-            <li class="job-filter-tag" :key="index" v-for="(tag, index) in tags">{{ tag }}</li>
+            <li class="job-filter-tag"
+            :key="index"
+            v-for="(tag, index) in jobTags(job.id)"
+            @click="addFilterTerm(tag)">{{ tag }}</li>
         </ul>
     </div>
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
     props: {
         job: Object
-    },
-
-    methods: {
-        getCompanyLogoURL(name) {
-            const imagePathSplitted = name.split('/');
-
-            const imageName = imagePathSplitted[ imagePathSplitted.length - 1 ];
-
-            return require(`@/assets/images/${imageName}`);
-        }
     },
 
     data(){
@@ -59,14 +54,24 @@ export default {
         }
     },
 
+    methods: {
+        getCompanyLogoURL(name) {
+            const imagePathSplitted = name.split('/');
+
+            const imageName = imagePathSplitted[ imagePathSplitted.length - 1 ];
+
+            return require(`@/assets/images/companies/${imageName}`);
+        },
+
+        ...mapActions('job', [
+            'addFilterTerm'
+        ])
+    },
+
     computed: {
-        tags(){
-            return [this.job.role].concat(
-                this.job.level,
-                this.job.languages,
-                this.job.tools
-            )
-        }
+        ...mapGetters('job', [
+            'jobTags'
+        ])
     }
 }
 </script>

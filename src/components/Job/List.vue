@@ -7,6 +7,8 @@
 <script>
 import Card from '@/components/Job/Card';
 
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'List',
 
@@ -14,19 +16,14 @@ export default {
     Card
   },
 
-  data() {
-    return {
-      jobs: []
-    }
+  mounted() {
+    this.$store.dispatch('job/fetchJobs');
   },
 
-  mounted() {
-    fetch('data.json')
-    .then(stream => stream.json())
-    .then(data => {
-      this.jobs = data;
+  computed: {
+    ...mapGetters('job', {
+      jobs: 'filteredJobs'
     })
-    .catch(error => console.error(error))
-  }
+  },
 }
 </script>
