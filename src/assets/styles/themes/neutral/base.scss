@@ -1,13 +1,11 @@
 body{
     background-color: $primary-color;
-    background-image: url('#{$app-bg-path}/bg-header-mobile.svg');
+    background-image: url('#{$app-bg-path}/bg-header-desktop.svg');
     background-repeat: no-repeat;
-
-    @media (min-width: $app-mobile-viewport-size) {
-        background-image: url('#{$app-bg-path}/bg-header-desktop.svg');
-    }
+    background-position: 100% 0;
 }
 
 #app{
+    margin-top: 156px;
     background-color: $bg-neutral-light-grayish-cyan-color;
 }

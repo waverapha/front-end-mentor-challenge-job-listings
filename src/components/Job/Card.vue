@@ -16,7 +16,9 @@
             </div>
 
             <div class="job-description">
-                <h3 class="job-position">{{ job.position }}</h3>
+                <h3 class="job-position">
+                    <a>{{ job.position }}</a>
+                </h3>
                 <ul class="job-information">
                     <li>{{ job.postedAt }}</li>
                     <li>{{ job.contract }}</li>

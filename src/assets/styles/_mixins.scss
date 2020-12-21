@@ -2,3 +2,21 @@
     display: flex;
     flex-wrap: $wrap;
 }
+
+@mixin hover($transition: all 0.3s){
+    cursor: pointer;
+    transition: $transition;
+}
+
+@mixin tag-style{
+    padding: 10px;
+    border-radius: 5px;
+    background: $bg-neutral-light-grayish-cyan-color;
+    color: $primary-color;
+    font-size: 0.8rem;
+    font-weight: 700;
+
+        @media(min-width: $app-desktop-viewport-size){
+            font-size: 0.9rem;
+        }
+}

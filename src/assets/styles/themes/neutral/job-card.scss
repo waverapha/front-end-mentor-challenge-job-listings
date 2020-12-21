@@ -1,7 +1,7 @@
 .job-card-list{
-    margin-top: 156px;
     padding: 25px;
-    
+    padding-top: 0;
+
     @media(min-width: $app-desktop-viewport-size){
         @include flexbox;
         justify-content: center;
@@ -63,6 +63,10 @@
                     font-size: 0.65rem;
                     font-weight: 700;
                     color: #fff;
+
+                    &:first-of-type{
+                        margin-left: 0;
+                    }
         
                     &.is-new{
                         background-color: $primary-color;
@@ -87,6 +91,10 @@
             .job-position{
                 font-size: 0.95rem;
                 color: $neutral-darkest-grayish-cyan-color;
+
+                &:hover{
+                    color: $primary-color;
+                }
 
                     @media(min-width: $app-desktop-viewport-size){
                         font-size: 1.17rem;
@@ -143,16 +151,13 @@
 
         .job-filter-tag{
             margin: 7.5px;
-            padding: 10px;
-            border-radius: 5px;
-            background: $bg-neutral-light-grayish-cyan-color;
-            color: $primary-color;
-            font-size: 0.8rem;
-            font-weight: 700;
+            @include tag-style;
+            @include hover;
 
-                @media(min-width: $app-desktop-viewport-size){
-                    font-size: 0.9rem;
-                }
+            &:hover{
+                background: $primary-color;
+                color: #fff;
+            }
         }
     }
 }
