@@ -3,6 +3,10 @@ body{
     background-image: url('#{$app-bg-path}/bg-header-desktop.svg');
     background-repeat: no-repeat;
     background-position: 100% 0;
+
+    @media (min-width: $app-desktop-viewport-size) {
+        background-size: contain;
+    }
 }
 
 #app{
